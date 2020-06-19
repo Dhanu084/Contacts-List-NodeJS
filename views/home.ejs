@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/f3fe8d587b.js"></script>
+        
+        <link rel="stylesheet" href="../css/home.css">
+    </head>
+    
+    <body>
+        
+        <h1>My Contacts</h1>
+
+        <ul>
+            <% for(let i of contacts) {%>
+            <li>
+                <div class="contact-containers">
+                    <div class="Initial"><%= i.name[0].toUpperCase() %></div>
+                    <div class="Name"><%= i.name %></div>
+                    <div class="Number"><%= i.phone %></div>
+                    <div class="delete"><a href="delete-contact/<%=i.id%>"><i class="fas fa-window-close"></i></a></div>
+                </div>
+            </li>
+            <%}%>
+        </ul>
+
+        <div id="add-contact">
+            <form action="addContact" method="POST">
+                <input type="text" placeholder="name" name="name" required>
+                <input type="text" placeholder="number" name="number" required>
+                <button value="submit">Add Contact</button>
+            </form>
+        </div>
+
+        <script src="/js/home.js"></script>
+    </body>
+</html>
